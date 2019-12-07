@@ -114,6 +114,7 @@ The tests of original S2S model and attention-based S2S model share the same inp
 The original textual file of dataset contains both source(English) sentences and target language(Chinese) which are formed as continuous sentences in 2 columns. It should be looked like this:
 
 `He ran.	他跑了。`
+
 `Hop in.	跳进来。`
 
 Our first task aims at slicing the continuous sentences with spaces between each elements(words and punctuations included). A general used tool named [stanfordcorenlp](https://stanfordnlp.github.io/stanfordnlp/) could finish this task nice and smooth.
@@ -121,7 +122,9 @@ Our first task aims at slicing the continuous sentences with spaces between each
 You may want to install and use this module by doing this:
 
 `pip install --upgrade stanfordnlp`
+
 `conda install --upgrade stanfordnlp`
+
 `from stanfordcorenlp import StanfordCoreNLP`
 
 -seperation.py
@@ -129,6 +132,7 @@ You may want to install and use this module by doing this:
 The after-processed text file is as followed:
 
 `He ran .	他 跑 了 。`
+
 `Hop in .	跳 进 来 。`
 
 For more conveniet follow-up processing, you may like to seperating different languages into 2 text files.
@@ -176,21 +180,25 @@ The results of testing consist 2 parts: indices of word sequence and the corresp
 input:
 
 `This is a test .`
+
 `[91, 13, 9, 682, 4, 2]`
 
 output:
 
 `[1 13 6 12 361 2]`
+
 `这是个实验`
 
 input:
 
 `This is a test .`
+
 `[91, 13, 9, 682, 4, 2]`
 
 output:
 
 `[1 13 6 9 12 361 5 2]`
+
 `这是一个实验。`
 
 We only training this model for 500 steps for just studying, so results could not be so satisfying.
